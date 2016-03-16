@@ -642,7 +642,7 @@ hr {
   outline: none;
   height: 11px;
   background: transparent url("../images/hr.gif") center center repeat-x;
-  margin: 0 0 20px;
+  margin: 0;
 }
 
 dt {
@@ -795,6 +795,7 @@ section {
   width: 590px;
   padding: 30px 30px 50px 30px;
   margin: 20px 0;
+  overflow-y: auto;
   margin-top: 190px;
   position: relative;
   background: #fbfbfb;

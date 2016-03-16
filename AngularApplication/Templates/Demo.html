@@ -1,0 +1,27 @@
+<div class="demo-heading" ng-bind="demoModel.title"></div>
+
+<div class="pokedex-container">
+
+    <div class="pokedex-row-container" ng-repeat="pokemonRow in pokemonRowList" ng-show="flags.initialDataLoaded">
+        <div class="small-pokemon-container" ng-repeat="pokemon in pokemonRow.pokemonList">
+            <div class="small-pokemon-img-container">
+                <img ng-src="http://pokeapi.co/media/img/{{pokemon.national_id}}.png" class="img-centered">
+            </div>
+            <hr/>
+            <div class="small-pokemon-info-container">
+                <div class="small-pokemon-name" ng-bind="pokemon.name"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="loading-container" ng-show="flags.loading">
+        Loading ...
+    </div>
+
+    <div class="load-more-button" ng-show="flags.initialDataLoaded">Load More</div>
+</div>
+
+<div class="selected-pokemon-container">
+    <!-- selected pokemon visual data -->
+</div>

@@ -1,10 +1,10 @@
 <!doctype html>
-<html>
+<html data-ng-controller="HomePageCtrl" data-ng-cloak="true">
   <head>
     <!--Auto Generated-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Kottans-pass-exercise by alexander-larchenko</title>
+    <title ng-bind="model.pageTitle"></title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-dark.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -14,39 +14,46 @@
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--Auto Generated End-->
-
+    <link rel="stylesheet" href="stylesheets/pokedex.css">
   </head>
   <body>
 
-      <header>
-        <h1>Kottans-pass-exercise</h1>
-        <p></p>
-      </header>
+    <header>
+      <h1 ng-bind="model.pageHeader"></h1>
+      <p></p>
+    </header>
 
-      <div id="banner">
-        <span id="logo"></span>
+    <div id="banner">
+      <span id="logo"></span>
 
-        <a href="https://github.com/alexander-larchenko/kottans-pass-exercise" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/alexander-larchenko/kottans-pass-exercise/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/alexander-larchenko/kottans-pass-exercise/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
+      <a href="https://github.com/alexander-larchenko/kottans-pass-exercise/tree/gh-pages" class="button fork"><strong>View On GitHub</strong></a>
+      <div class="downloads">
+        <span>Downloads:</span>
+        <ul>
+          <li><a href="https://github.com/alexander-larchenko/kottans-pass-exercise/zipball/gh-pages" class="button">ZIP</a></li>
+          <li><a href="https://github.com/alexander-larchenko/kottans-pass-exercise/tarball/gh-pages" class="button">TAR</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- end banner -->
 
     <div class="wrapper">
       <nav>
-        <ul></ul>
+        <ul>
+          <li class="tag-h1 active">
+            <a href="#">
+              Project Description
+            </a>
+          </li>
+          <li class="tag-h1">
+            <a href="#Demo">
+              Demo
+            </a>
+          </li>
+        </ul>
       </nav>
       <section>
-        <h1>
-            <a id="kottans-pass-exercise" class="anchor" href="#kottans-pass-exercise" aria-hidden="true">
-                <span aria-hidden="true" class="octicon octicon-link"></span>
-            </a>
-            kottans-pass-exercise
-        </h1>
+        <data-ng-view></data-ng-view>
       </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/alexander-larchenko">alexander-larchenko</a></p>
@@ -54,6 +61,18 @@
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.min.js"></script>
+    <!-- Angular Application Scripts -->
+    <script src="AngularApplication/Core/AngularHelper.js"></script>
+    <script src="AngularApplication/Core/PokemonApp.js"></script>
+    <!-- Services & Directives -->
+    <!-- Services & Directives END -->
+    <script src="AngularApplication/Core/PokemonAppRun_RootScope.js"></script>
+    <!-- Controllers -->
+    <script src="AngularApplication/Controllers/HomePageCtrl.js"></script>
+    <script src="AngularApplication/Controllers/DemoCtrl.js"></script>
+    <!-- Controllers END -->
   </body>
 </html>
