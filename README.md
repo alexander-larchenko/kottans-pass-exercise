@@ -1,1 +1,3 @@
-# kottans-pass-exercise
+# kottans-pass-exercise, Pokemon App
+
+Checkout "gh-pages" branch
