@@ -794,6 +794,7 @@ header p {
 
 section {
   width: 590px;
+  min-height:700px;
   padding: 30px 30px 50px 30px;
   margin: 20px 0;
   overflow-y: auto;
