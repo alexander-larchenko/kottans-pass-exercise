@@ -2,26 +2,64 @@
 
 <div class="pokedex-container">
 
-    <div class="pokedex-row-container" ng-repeat="pokemonRow in pokemonRowList" ng-show="flags.initialDataLoaded">
-        <div class="small-pokemon-container" ng-repeat="pokemon in pokemonRow.pokemonList">
+    <div class="pokedex-list-container" ng-show="flags.initialDataLoaded">
+
+        <div class="filter-container" ng-show="typesList">
+            <span>Filter by type: </span>
+            <select ng-options="type as type.name for type in typesList" ng-model="selectedFilterType">
+                <option value="">All</option>
+            </select>
+        </div>
+
+        <div class="small-pokemon-container" ng-repeat="pokemon in pokemonList | pokemonTypeFilter:selectedFilterType" ng-click="selectPokemon(pokemon)" ng-class="{'selected' : pokemon.national_id == selectedPokemon.national_id}">
             <div class="small-pokemon-img-container">
                 <img ng-src="http://pokeapi.co/media/img/{{pokemon.national_id}}.png" class="img-centered">
             </div>
             <hr/>
             <div class="small-pokemon-info-container">
                 <div class="small-pokemon-name" ng-bind="pokemon.name"></div>
+                <div class="small-pokemon-types-labels-container">
+                    <div class="small-pokemon-type-label" ng-repeat="type in pokemon.types" ng-bind="type.name" ng-class="'type-'+type.name"></div>
+                </div>
             </div>
 
         </div>
+
+        <br/>
+        <br/>
+        <div class="load-more-button" ng-show="flags.initialDataLoaded" ng-click="loadMorePokemons()">Load More</div>
     </div>
 
-    <div class="loading-container" ng-show="flags.loading">
-        Loading ...
+
+    <div class="selected-pokemon-container" ng-show="flags.initialDataLoaded">
+        <span ng-show="!selectedPokemon" class="pokemon-not-selected-char">?</span>
+        <!-- selected pokemon visual data -->
+        <div class="selected-pokemon-wrapper" ng-show="selectedPokemon">
+            <div class="small-pokemon-img-container">
+                <img ng-src="http://pokeapi.co/media/img/{{selectedPokemon.national_id}}.png" class="img-centered">
+            </div>
+            <hr/>
+            <div class="small-pokemon-info-container">
+                <div class="small-pokemon-name">{{selectedPokemon.name + ' #' + selectedPokemon.national_id}}</div>
+
+                <table class="selected-pokemon-info-table">
+                    <tr><td>Type</td><td ng-bind="selectedPokemon.pokemonTypesLabel"></td></tr>
+                    <tr><td>Attack</td><td ng-bind="selectedPokemon.attack"></td></tr>
+                    <tr><td>Defence</td><td ng-bind="selectedPokemon.defense"></td></tr>
+                    <tr><td>HP</td><td ng-bind="selectedPokemon.hp"></td></tr>
+                    <tr><td>SP Attack</td><td ng-bind="selectedPokemon.sp_atk"></td></tr>
+                    <tr><td>SP Defence</td><td ng-bind="selectedPokemon.sp_def"></td></tr>
+                    <tr><td>Speed</td><td ng-bind="selectedPokemon.speed"></td></tr>
+                    <tr><td>Weight</td><td ng-bind="selectedPokemon.weight"></td></tr>
+                    <tr><td>Total Moves</td><td ng-bind="selectedPokemon.moves.length"></td></tr>
+                </table>
+
+            </div>
+        </div>
     </div>
-
-    <div class="load-more-button" ng-show="flags.initialDataLoaded">Load More</div>
 </div>
 
-<div class="selected-pokemon-container">
-    <!-- selected pokemon visual data -->
+<div class="loading-container" ng-show="flags.loading || flags.typesLoading">
+    <div class="loading-gif"></div>
 </div>
+

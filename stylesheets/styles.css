@@ -609,6 +609,7 @@ pre {
   border: 1px solid #c7c7c7;
   overflow: auto;
   overflow-y: hidden;
+  color: wheat;
 }
 pre code {
   margin: 0px;
