@@ -15,10 +15,10 @@
     var pokemonAppConfigFunction = function ($routeProvider) {
 
         $routeProvider.when('/Demo', {
-            templateUrl: 'AngularApplication/Templates/Demo.html',
+            templateUrl: 'Demo.html',
             controller: 'DemoCtrl'
         }).otherwise({
-            templateUrl: 'AngularApplication/Templates/ProjectDescription.html'
+            templateUrl: 'ProjectDescription.html'
         });
 
     }
