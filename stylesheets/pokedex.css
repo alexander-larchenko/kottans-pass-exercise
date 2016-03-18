@@ -97,7 +97,7 @@
     border: 1px solid black;
     display: inline-block;
     position: fixed;
-    margin-top: 515px;
+    margin-top: 50%;
     top: -125px;
 }
 
@@ -187,3 +187,10 @@
 
 }
 
+@media screen and (max-height: 846px) and (min-width: 647px){
+
+    .selected-pokemon-container {
+        position: absolute;
+    }
+
+}
